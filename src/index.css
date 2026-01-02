@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f1418;
+  --color-foreground: #f0f2f5;
+  --color-card: #141a1f;
+  --color-primary: #20b2a6;
+  --color-primary-foreground: #ffffff;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: "Inter", sans-serif;
+  overscroll-behavior: none;
+}
+@layer utilities {
+  .section {
+    @apply max-w-6xl mx-auto px-6 py-8;
+  }
+}
+
+.group:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 20px 40px rgba(0, 0, 0, 0.45);
+}
+html {
+  scroll-behavior: smooth;
+}
