@@ -279,6 +279,31 @@ const ProjectDetails = ({ project, hideHeader = false }) => (
         </span>
       ))}
     </div>
+    {/* Mobile GitHub Button */}
+    {hideHeader && (
+      <a
+        href={project.github}
+        target="_blank"
+        className="
+      mt-4
+      inline-flex
+      items-center
+      gap-2
+      rounded-lg
+      border border-primary/40
+      bg-primary/10
+      px-4
+      py-2
+      text-sm
+      text-primary
+      hover:bg-primary hover:text-black
+      transition
+    "
+      >
+        <Github size={16} />
+        GitHub
+      </a>
+    )}
 
     <Section title="Business Context">{project.context}</Section>
 
