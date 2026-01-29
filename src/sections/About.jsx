@@ -41,6 +41,19 @@ const features = [
   },
 ];
 
+const calculateExperience = (startYear, startMonth) => {
+  const startDate = new Date(startYear, startMonth - 1); // Month is 0-based
+  const currentDate = new Date();
+
+  const totalMonths =
+    (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+    (currentDate.getMonth() - startDate.getMonth());
+
+  const years = (totalMonths / 12).toFixed(1);
+  return years;
+};
+const experience = calculateExperience(2022, 4);
+
 const About = () => {
   return (
     <section id="about" className="relative pt-20 pb-18 scroll-mt-28">
@@ -64,8 +77,11 @@ const About = () => {
 
             <p className="mt-6 text-[15px] leading-[1.9] text-white/65 max-w-xl">
               I’m a React.js Developer with{" "}
-              <span className="text-white font-medium">3.8+ years</span> of
-              experience delivering{" "}
+              <span className="text-white font-medium">
+                {" "}
+                {experience}+ years
+              </span>{" "}
+              of experience delivering{" "}
               <span className="text-white">
                 production-ready enterprise dashboards
               </span>
