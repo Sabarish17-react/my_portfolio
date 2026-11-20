@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0f1418;
-  --color-foreground: #f0f2f5;
-  --color-card: #141a1f;
-  --color-primary: #20b2a6;
-  --color-primary-foreground: #ffffff;
+  --color-bg: #eef1f4;
+  --color-ink: #14202b;
+  --color-steel: #2b4c6f;
+  --color-signal: #f2a900;
+  --color-line: #cbd3db;
+  --color-panel: #ffffff;
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
 }
 
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  font-family: "Inter", sans-serif;
-  overscroll-behavior: none;
-}
-@layer utilities {
-  .section {
-    @apply max-w-6xl mx-auto px-6 py-8;
-  }
-}
-
-.group:hover {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 20px 40px rgba(0, 0, 0, 0.45);
-}
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { background: var(--color-bg); color: var(--color-ink); font-family: var(--font-body); line-height: 1.65; }
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.1; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-signal); outline-offset: 3px; }
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+.sect { padding-block: 5rem; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.4rem; border-radius: .5rem; font-weight: 600; font-size: .95rem; transition: transform .15s, background .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-signal { background: var(--color-signal); color: var(--color-ink); }
+.btn-line { border: 1.5px solid var(--color-ink); }
+.btn-line:hover { background: var(--color-ink); color: #fff; }
+.chip { display: inline-block; padding: .15rem .6rem; border-radius: .35rem; background: #e3e8ee; font-size: .8rem; color: var(--color-steel); }
+.panel { background: var(--color-panel); border: 1px solid var(--color-line); border-radius: .75rem; }
+@keyframes pulse-dot { 0%,100% { opacity: 1 } 50% { opacity: .35 } }
+.live-dot { animation: pulse-dot 1.6s infinite; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .live-dot { animation: none; } .btn { transition: none; } }
